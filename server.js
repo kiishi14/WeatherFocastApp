@@ -25,6 +25,11 @@ app.get("/dashboard", function (req, res) {
   res.sendFile(__dirname + "/dashboard.html");
 });
 
-app.listen(process.env.PORT || 3000, function () {
+app.get("/logout", function (req, res) {
+  req.logout(); // Clear the user's authentication session
+  res.redirect("/login");
+});
+
+app.listen(3000, function () {
   console.log("Server started on port 3000");
 });
